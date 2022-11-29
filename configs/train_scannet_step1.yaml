@@ -1,0 +1,65 @@
+_BASE_: Base.yaml
+MODEL:
+  META_ARCHITECTURE: "PlaneTR_NopeSAC"
+  MASK_ON: True
+  CAMERA_ON: True
+  EMBEDDING_ON: True
+  HUNGARIAN_MATCHER_ON: True
+  LOSS_DETECTION_ON: True
+  LOSS_CAMERA_ON: True
+  LOSS_EMB_ON: True
+  SEM_SEG_HEAD:
+    NAME: "PlaneTRHead"
+    IN_FEATURES: ["res2", "res3", "res4", "res5"]
+    NORM: "GN"
+    NUM_CLASSES: 1
+    PARAM_ON: True
+    CENTER_ON: True
+    DEEP_SUPERVISION: True
+    LOSS_WEIGHT: 1.0
+    DICE_WEIGHT: 1.0
+    MASK_WEIGHT: 20.0
+    PARAM_WEIGHT_L1: 0.25
+    PARAM_HM_WEIGHT_L1: 0.25
+    PARAM_WEIGHT_COS: 1.0
+    PARAM_WEIGHT_Q: 1.0
+    PARAM_WEIGHT_CENTER_INS: 0.5
+    PARAM_WEIGHT_ANGLE: 0.0028
+    PARAM_WEIGHT_OFFSET: 0.01
+  CAMERA_HEAD:
+    KMEANS_TRANS_PATH: "camCls/scannet_kmeans_trans_32.pkl"
+    KMEANS_ROTS_PATH: "camCls/scannet_kmeans_rots_32.pkl"
+    REFINE_ON: False
+    CAM_REC_ON: True
+    RAND_ON: True
+    NAME: "PlaneCameraHead"
+    WARP_PLANE_IN_CAM_REF_ON: True
+  WEIGHTS: "models/mp3d_NopeSAC.pth"
+
+SOLVER:
+  IMS_PER_BATCH: 16
+  OPTIMIZER: "ADAMW"
+  MAX_ITER: 20000
+  CHECKPOINT_PERIOD: 1100
+  STEPS: (4400,)
+  BASE_LR: 0.0001
+  GAMMA: 0.1
+  BACKBONE_MULTIPLIER: 1.0
+  PLANE_MATCHER_HEAD_MULTIPLIER: 1.0
+  SEM_SEG_HEAD_MULTIPLIER: 1.0
+  CLIP_GRADIENTS:
+    ENABLED: False
+
+DATASETS:
+  TRAIN: ("scannet_train",)
+  TEST: ("scannet_test",)
+
+TEST:
+  EVAL_PERIOD: 1100
+  EVAL_FULL_SCENE: False
+  MATCHING_SCORE_THRESHOLD: 0.2
+
+DATALOADER:
+  NUM_WORKERS: 4
+
+OUTPUT_DIR: "ckpts_scannet/step1/"

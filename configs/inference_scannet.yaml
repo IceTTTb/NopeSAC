@@ -1,0 +1,39 @@
+_BASE_: Base.yaml
+MODEL:
+  META_ARCHITECTURE: "PlaneTR_NopeSAC"
+  MASK_ON: True
+  CAMERA_ON: True
+  EMBEDDING_ON: True
+  SEM_SEG_HEAD:
+    NAME: "PlaneTRHead"
+    IN_FEATURES: ["res2", "res3", "res4", "res5"]
+    NORM: "GN"
+    NUM_CLASSES: 1
+    PARAM_ON: True
+    CENTER_ON: True
+  CAMERA_HEAD:
+    KMEANS_TRANS_PATH: "./camCls/scannet_kmeans_trans_32.pkl"
+    KMEANS_ROTS_PATH: "./camCls/scannet_kmeans_rots_32.pkl"
+    REFINE_ON: True
+    CAM_REC_ON: True
+    INFERENCE_OUT_CAM_TYPE: "soft"
+    INFERENCE_SP_TOPCAM_ON: False
+    INFERENCE_SP_TOPCAM_PATH: ""
+    NAME: "PlaneCameraHead"
+    WARP_PLANE_IN_CAM_REF_ON: True
+  WEIGHTS: "models/scannet_NopeSAC.pth"
+
+DATASETS:
+  TRAIN: ("scannet_train",)
+  TEST: ("scannet_test",)
+
+TEST:
+  EVAL_FULL_SCENE: False
+  MATCHING_SCORE_THRESHOLD: 0.2
+
+DATALOADER:
+  NUM_WORKERS: 2
+
+OUTPUT_DIR: "results/scannet_testSet"
+SEED: 42
+FIX_SEED: True
