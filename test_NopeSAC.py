@@ -152,7 +152,6 @@ class Trainer(DefaultTrainer):
         Returns:
             dict: a dict of result metrics
         """
-        # todo
         return {}
 
     @classmethod

@@ -23,8 +23,8 @@ conda activate NopeSAC
 ## Data prepare
 
 ## Inference and Evaluation
-- Download the pretrained models from [here]() and place them into 'models/'
-- You can run the following command to inference with the pretrained model on
+Download the pretrained models from [here]() and save them into 'models/'. 
+Then, you can run the following command to inference with the pretrained model on
 the Matterport3D and ScanNet datasets.
 ```
 # inference on mp3d dataset
@@ -39,15 +39,51 @@ DATASETS.ROOT_DIR 'datasets/mp3d_dataset/'
 # test NopeSAC on scannet dataset
 #CUDA_VISIBLE_DEVICES=3 python test_NopeSAC.py \
 #--config-file configs/inference_scannet.yaml \
-#--num-gpus 1 \
+#--num-gpus 4 \
 #--eval-only \
 #TEST.EVAL_FULL_SCENE True \
 #MODEL.CAMERA_HEAD.INFERENCE_OUT_CAM_TYPE "soft" \
 #DATASETS.ROOT_DIR 'datasets/scannet_dataset/'
 ```
-- After inference, you can run the following command to evaluate the results.
+After inference, you can run the following command to evaluate the results. 
+Or you can also directly download our inference results from [here]() 
+and save them into 'results/'.
 ```
-# TODO
+# evaluate plane reconstrucction on the Matterport3D dataset
+python eval.py \
+--config-file configs/inference_mp3d.yaml \
+--rcnn-cached-file ./results/mp3d_testSet/NopeSAC_instances_predictions.pth \
+--evaluate AP \
+--num-process 16 \
+--dataset-phase "mp3d_test" \
+--optimized-dict-path ./results/mp3d_testSet/continuous.pkl
+
+# evaluate camera pose on the Matterport3D dataset
+python eval.py \
+--config-file configs/inference_mp3d.yaml \
+--rcnn-cached-file ./results/mp3d_testSet/NopeSAC_instances_predictions.pth \
+--evaluate camera \
+--num-process 16 \
+--dataset-phase "mp3d_test" \
+--optimized-dict-path ./results/mp3d_testSet/continuous.pkl
+
+# evaluate plane reconstrucction on the ScanNet dataset
+python eval.py \
+--config-file configs/inference_scannet.yaml \
+--rcnn-cached-file ./results/scannet_testSet/NopeSAC_instances_predictions.pth \
+--evaluate AP \
+--num-process 16 \
+--dataset-phase "scannet_test" \
+--optimized-dict-path ./results/scannet_testSet/continuous.pkl
+
+# evaluate camera pose on the the ScanNet dataset
+python eval.py \
+--config-file configs/inference_scannet.yaml \
+--rcnn-cached-file ./results/scannet_testSet/NopeSAC_instances_predictions.pth \
+--evaluate camera \
+--num-process 16 \
+--dataset-phase "scannet_test" \
+--optimized-dict-path ./results/scannet_testSet/continuous.pkl
 ```
 
 ## Training

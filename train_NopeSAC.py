@@ -89,10 +89,6 @@ class Trainer(DefaultTrainer):
         weight_decay_norm = cfg.SOLVER.WEIGHT_DECAY_NORM
         weight_decay_embed = cfg.SOLVER.WEIGHT_DECAY_EMBED
 
-        # print('weight_decay_norm = ', weight_decay_norm)
-        # print()
-        # import pdb; pdb.set_trace()
-
         defaults = {}
         defaults["lr"] = cfg.SOLVER.BASE_LR
         defaults["weight_decay"] = cfg.SOLVER.WEIGHT_DECAY
@@ -182,7 +178,6 @@ class Trainer(DefaultTrainer):
         Returns:
             dict: a dict of result metrics
         """
-        # todo
         return {}
 
     @classmethod
@@ -246,7 +241,6 @@ def main(args):
         )
         res = Trainer.test(cfg, model)
 
-        #todo
         # res = Trainer.vis(cfg)
 
         return res
