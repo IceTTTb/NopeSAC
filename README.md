@@ -21,6 +21,7 @@ conda activate NopeSAC
 ```
 
 ## Data prepare
+- TODO
 
 ## Inference and Evaluation
 Download the pretrained models from [here]() and save them into 'models/'. 
