@@ -24,7 +24,7 @@ conda activate NopeSAC
 - TODO
 
 ## Inference and Evaluation
-Download the pretrained models from [here]() and save them into 'models/'. 
+Download the pretrained models from [here](https://drive.google.com/drive/folders/1ruo35BKxX3RR_Iy1KXWuK3OGB07ZHRb-?usp=share_link) and save them into 'models/'. 
 Then, you can run the following command to inference with the pretrained model on
 the Matterport3D and ScanNet datasets.
 ```
@@ -47,7 +47,7 @@ DATASETS.ROOT_DIR 'datasets/mp3d_dataset/'
 #DATASETS.ROOT_DIR 'datasets/scannet_dataset/'
 ```
 After inference, you can run the following command to evaluate the results. 
-Or you can also directly download our inference results from [here]() 
+Or you can also directly download our inference results from [here](https://drive.google.com/drive/folders/1noUBa9crVPG1H-nb1Bkdma96c_MlNDXj?usp=share_link) 
 and save them into 'results/'.
 ```
 # evaluate plane reconstrucction on the Matterport3D dataset
