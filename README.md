@@ -21,6 +21,23 @@ conda activate NopeSAC
 ```
 
 ## Data prepare
+### Matterport3D dataset
+Please download the processed sparse-view data of Matterport3D from [SparsePlanes](https://github.com/jinlinyi/SparsePlanes/blob/main/docs/data.md) 
+and unzip them into 'datasets/'. The structure of the data file should be like:
+```
+/datasets
+|-- mp3d_dataset
+    |-- mp3d_planercnn_json
+        |-- cached_set_test.json
+        |-- cached_set_val.json
+        |-- cached_set_train.json
+    |-- obversions
+        |-- ...
+    |-- rgb
+        |-- ...
+```
+
+### ScanNet dataset
 - TODO
 
 ## Inference and Evaluation
