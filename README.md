@@ -148,6 +148,16 @@ DATASETS.ROOT_DIR 'datasets/scannet_dataset/'
 ## Visualization
 - TODO
 
+## Citations
+If you find our work useful in your research, please consider citing:
+```
+@article{NOPESAC,
+title = "NOPE-SAC: Neural One-Plane RANSAC for Sparse-View Planar 3D Reconstruction",
+author = "Bin Tan and Nan Xue and Tianfu Wu and Gui-Song Xia",
+journal = {arXiv:2211.16799},
+year = {2022}
+}
+```
 
 ## Acknowledgement
 This repo largely benefits from [SparsePlanes](https://github.com/jinlinyi/SparsePlanes). 
