@@ -336,7 +336,6 @@ class PlaneRCNNMapper:
                 )
                 with open(masks_path, "rb") as f:
                     obs = pickle.load(f)
-
                 plane_masks = obs['plane_masks']
 
                 plane_num = len(plane_masks)

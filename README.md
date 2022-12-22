@@ -38,7 +38,24 @@ and unzip them into 'datasets/'. The structure of the data file should be like:
 ```
 
 ### ScanNet dataset
-- TODO
+To run our code on the ScanNet dataset, you have to download the raw data of [ScanNetV2](https://kaldir.vc.in.tum.de/scannet_benchmark/documentation)
+and then download the our sparse-view annotations form [here](https://drive.google.com/drive/folders/1S_hSvyc8Coj_ZzcU2OL2GCInWmLYbeYF?usp=sharing). 
+The structure of the data file should be like:
+```
+/datasets
+|-- scannet_dataset
+    |-- scannet_json
+        |-- cached_set_trainV2.json
+        |-- cached_set_testV2.json
+    |-- twoView_Anns
+        |-- sceneXXXX_XX/...
+        |-- ...
+    |-- scans
+        |-- sceneXXXX_XX
+            |-- color/...
+            |-- depth/...
+        |-- ...
+```
 
 ## Inference and Evaluation
 Download the pretrained models from [here](https://drive.google.com/drive/folders/1ruo35BKxX3RR_Iy1KXWuK3OGB07ZHRb-?usp=share_link) and save them into 'models/'. 

@@ -16,8 +16,8 @@ SPLITS = {
     "mp3d_val": ("mp3d", "mp3d_planercnn_json/cached_set_val.json"),
     "mp3d_test": ("mp3d", "mp3d_planercnn_json/cached_set_test.json"),
     "mp3d_train": ("mp3d", "mp3d_planercnn_json/cached_set_train.json"),
-    "scannet_train": ("scannet", "scannet_json/cached_set_train.json"),
-    "scannet_test": ("scannet", "scannet_json/cached_set_test.json"),
+    "scannet_train": ("scannet", "scannet_json/cached_set_trainV2.json"),
+    "scannet_test": ("scannet", "scannet_json/cached_set_testV2.json"),
 }
 
 def register_mp3d(dataset_name, json_file, image_root):
