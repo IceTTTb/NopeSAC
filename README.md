@@ -16,7 +16,7 @@ the Matterport3D and the ScanNet datasets for pose estimation and holistic plana
 
 ## Installation
 ```
-conda env create -f environment.yml
+conda env create -f environment.yaml
 conda activate NopeSAC
 ```
 We also provide a Dockerfile to run our code. Please see [here](https://github.com/IceTTTb/NopeSAC/blob/master/docker/README.md) for more details.
