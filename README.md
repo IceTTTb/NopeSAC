@@ -167,7 +167,10 @@ DATASETS.ROOT_DIR 'datasets/scannet_dataset/'
 ```
 
 ## Visualization
-- TODO
+You can run the following command to save the reconstructed planar scene and corresponding cameras:
+```
+python vis_NopeSAC.py
+```
 
 ## Citations
 If you find our work useful in your research, please consider citing:
