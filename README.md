@@ -1,5 +1,10 @@
 # NOPE-SAC: Neural One-Plane RANSAC for Sparse-View Planar 3D Reconstruction [[arXiv]](https://arxiv.org/abs/2211.16799)
 ### Bin Tan, Nan Xue, Tianfu Wu, Gui-Song Xia
+### IEEE Trans. on Pattern Analysis and Machine Intelligence (TPAMI)
+
+### 🔥 News
+
+- `10/09/2023` :wink: Our NOPE-SAC has been accepted by TPAMI.
 
 ---
 ![image](assets/teaser.png)
