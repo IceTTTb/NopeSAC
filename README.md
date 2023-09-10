@@ -4,7 +4,7 @@
 
 ### 🔥 News
 
-- `10/09/2023` :wink: Our NOPE-SAC is accepted to TPAMI!
+- `2023.9` :wink: Our NOPE-SAC is accepted to TPAMI!
 
 ---
 ![image](assets/teaser.png)
